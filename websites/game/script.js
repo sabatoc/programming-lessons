@@ -3,10 +3,24 @@ const hen = document.getElementById('hen');
 let score = 0;
 
 // This function is called whenever the mouse moves
-document.addEventListener('mousemove', function(e) {
+/*document.addEventListener('mousemove', function(e) {
     // Move the player to follow the mouse cursor
     player.style.left = e.pageX + 'px';
     player.style.top = e.pageY + 'px';
+});*/
+
+document.addEventListener('mousemove', function(e) {
+    // Move the player to follow the mouse cursor, centered
+    const playerWidth = 190; // Width of the player element
+    const playerHeight = 190; // Height of the player element
+
+    // Calculate the centered position
+    const centeredLeft = e.pageX - playerWidth / 2;
+    const centeredTop = e.pageY - playerHeight / 2;
+
+    // Apply the centered position
+    player.style.left = centeredLeft + 'px';
+    player.style.top = centeredTop + 'px';
 });
 
 function spawnHen() {
@@ -24,5 +38,5 @@ hen.addEventListener('click', function() {
     spawnHen(); // Respawn the hen at a new location
 });
 
-// Initial spawn of the hen (this is where the game starts)
+// Initial spawn of the hen (this is where the game)
 spawnHen();
