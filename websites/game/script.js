@@ -3,15 +3,25 @@ const gameContainer = document.getElementById('gameContainer'); // Ensure you ha
 let score = 0;
 
 document.addEventListener('mousemove', function(e) {
-    // Move the player to follow the mouse cursor
-    player.style.left = e.pageX + 'px';
-    player.style.top = e.pageY + 'px';
+    // Move the player to follow the mouse cursor, centered
+    const playerWidth = 190; // Width of the player element
+    const playerHeight = 190; // Height of the player element
+
+    // Calculate the centered position
+    const centeredLeft = e.pageX - playerWidth / 2;
+    const centeredTop = e.pageY - playerHeight / 2;
+
+    // Apply the centered position
+    player.style.left = centeredLeft + 'px';
+    player.style.top = centeredTop + 'px';
 });
 
 function spawnTarget() {
     // Create a new target element
     const newTarget = document.createElement('div');
+    console.log(newTarget);
     newTarget.className = 'gameSprite'; // Assuming 'gameSprite' has your styling for targets
+    newTarget.id = 'target';
     newTarget.textContent = '🍎'; // Your target emoji or image
     const x = Math.random() * (window.innerWidth - 64);
     const y = Math.random() * (window.innerHeight - 64);
