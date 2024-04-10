@@ -50,15 +50,19 @@ function spawnTarget() {
         score++;
         document.getElementById('score').textContent = 'Score: ' + score;
         gameContainer.removeChild(newTarget); // Remove the clicked target
+
+        if (score == 10) {
+            clearInterval(spawnTargetInterval);
+            clearInterval(decreaseCountersInterval);
+            gameContainer.innerHTML = '';
+            // Delay the alert by 10 milliseconds to make sure the updated Score is shown before this alert
+            setTimeout(function() {
+                alert('Hai vinto!');
+            }, 10);
+        }
     });
 
     gameContainer.appendChild(newTarget);
-
-    // Append the new target to the game container
-    //gameContainer.appendChild(newTarget);
-
-    // Create counter for each target
-    //spawnTargetCounter(newTarget, x, y);
 }
 
 function spawnTargetCounter(target, targetX, targetY) {
@@ -67,7 +71,6 @@ function spawnTargetCounter(target, targetX, targetY) {
     targetCounter.textContent = '6';
     targetCounter.style.left = (targetX + targetWidth/3) + 'px';
     targetCounter.style.top = (targetY + targetHeight/3) + 'px';
-    //targetCounter.style.zIndex = 0;
     targetCounter.style.position = 'absolute'; // Ensure this is set if not already in your CSS
 
     target.appendChild(targetCounter);
@@ -80,9 +83,16 @@ function decreaseCounters() {
 
     for (i = 0; i < counters.length; i++) {
         counters[i].textContent -= 1;
+
+        if (counters[i].textContent == -1) {
+            alert('Hai perso, riprova!');
+            location.reload();
+            clearInterval(spawnTargetInterval);
+            clearInterval(decreaseCountersInterval);
+        }
     }
 }
 
-// Call spawnTarget every second
-setInterval(spawnTarget, 1000);
-setInterval(decreaseCounters, 1000);
+// Call spawnTarget and decreaseCounters every second
+spawnTargetInterval = setInterval(spawnTarget, 1000);
+decreaseCountersInterval = setInterval(decreaseCounters, 1000);
