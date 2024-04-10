@@ -26,12 +26,25 @@ function spawnTarget() {
     newTarget.id = 'target';
     newTarget.textContent = '🍎'; // Your target emoji or image
 
-    const x = Math.random() * (window.innerWidth - 64);
-    const y = Math.random() * (window.innerHeight - 64);
+    let x = Math.random() * (window.innerWidth - 64);
+    console.log("Target x:", x);
+    let y = Math.random() * (window.innerHeight - 64);
+    console.log("Target y:", y);
     newTarget.style.left = x + 'px';
     newTarget.style.top = y + 'px';
     newTarget.style.position = 'absolute'; // Ensure this is set if not already in your CSS
-    
+
+    const targetCounter = document.createElement('div');
+    targetCounter.className = 'targetCounter';
+    targetCounter.textContent = '6';
+    const targetCounterX = targetWidth/3;
+    const targetCounterY = -targetHeight;
+    targetCounter.style.left = targetCounterX + 'px';
+    targetCounter.style.top = targetCounterY + 'px';
+    targetCounter.style.position = 'relative'; // Ensure this is set if not already in your CSS
+
+    newTarget.appendChild(targetCounter);
+
     // Add click event to new target
     newTarget.addEventListener('click', function() {
         score++;
@@ -39,22 +52,26 @@ function spawnTarget() {
         gameContainer.removeChild(newTarget); // Remove the clicked target
     });
 
-    // Append the new target to the game container
     gameContainer.appendChild(newTarget);
 
+    // Append the new target to the game container
+    //gameContainer.appendChild(newTarget);
+
     // Create counter for each target
-    spawnTargetCounter(x, y);
+    //spawnTargetCounter(newTarget, x, y);
 }
 
-function spawnTargetCounter(targetX, targetY) {
+function spawnTargetCounter(target, targetX, targetY) {
     const targetCounter = document.createElement('div');
     targetCounter.className = 'targetCounter';
     targetCounter.textContent = '6';
     targetCounter.style.left = (targetX + targetWidth/3) + 'px';
     targetCounter.style.top = (targetY + targetHeight/3) + 'px';
+    //targetCounter.style.zIndex = 0;
     targetCounter.style.position = 'absolute'; // Ensure this is set if not already in your CSS
 
-    gameContainer.appendChild(targetCounter);
+    target.appendChild(targetCounter);
+    gameContainer.appendChild(target);
 }
 
 function decreaseCounters() {
