@@ -35,6 +35,6 @@ body, html {
     font-size: 128px; /* Size of the target */
 }
 
-#targetCounter {
+.targetCounter {
     font-size: 80px; /* Size of the counter displayed in the target */
 }
