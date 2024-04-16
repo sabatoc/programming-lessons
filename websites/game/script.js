@@ -93,6 +93,17 @@ function decreaseCounters() {
     }
 }
 
-// Call spawnTarget and decreaseCounters every second
+/*document.getElementById('startGame').addEventListener('click', function() {
+    console.log("Button pressed...");
+    
+    //spawnSpeed = document.getElementById('speed').value || 1000;
+    //clearInterval(gameInterval); // Clear existing game interval if any
+    //gameInterval = setInterval(spawnTarget, spawnSpeed);
+
+    // Call spawnTarget and decreaseCounters every second
+    spawnTargetInterval = setInterval(spawnTarget, 1000);
+    decreaseCountersInterval = setInterval(decreaseCounters, 1000);
+});*/
+
 spawnTargetInterval = setInterval(spawnTarget, 1000);
 decreaseCountersInterval = setInterval(decreaseCounters, 1000);

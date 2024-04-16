@@ -1,8 +1,20 @@
 /* Ensure the page content uses the entire available window space */
-body, html {
+/*body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* Ensures that the body takes the full height of the viewport */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    font-family: Arial, sans-serif; /* Optional: sets a default font */
 }
 
 /* Make the game container fill the entire viewport (the user's visible area of a web page) */
@@ -37,4 +49,19 @@ body, html {
 
 .targetCounter {
     font-size: 80px; /* Size of the counter displayed in the target */
+}
+
+#startGame {
+    padding: 20px 40px; /* Adjusts the size of the button */
+    font-size: 24px; /* Makes the text larger */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    background-color: #007bff; /* Sets a background color */
+    color: white; /* Sets the text color */
+    border: none; /* Removes the default border */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+}
+
+#startGame:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }

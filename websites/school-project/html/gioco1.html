@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gioco 1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gioco1.css">
+</head>
+<body>
+    <div id="topBar">
+        <button onclick="window.location.href='giochi.html'">Giochi</button>
+        <button onclick="alert('Menu 2 clicked')">Menu 2</button>
+        <button onclick="alert('Menu 3 clicked')">Menu 3</button>
+    </div>
+    <div id="gameBar">
+        <button onclick="window.location.href='gioco1.html'">Gioco 1</button>
+        <button onclick="window.location.href='gioco2.html'">Gioco 2</button>
+        <button onclick="window.location.href='gioco3.html'">Gioco 3</button>
+    </div>
+    <h1>Benvenuto al Gioco 1</h1>
+    <p>Descrizione del gioco 1.</p>
+    <iframe width="90%" height="90%">
+        <div id="gameContainer">
+            <div id="score">Score: 0</div>
+            <!-- The game uses emojis for the player and the target -->
+            <!-- You can try using different emojis :D - https://getemoji.com/ -->
+            <div id="player" class="gameSprite">✋🏻</div> <!-- Player -->
+            <div id="target" class="gameSprite">🍎</div> <!-- Target -->
+        </div>
+    </iframe>
+    <script src="../js/script.js"></script>
+    <script src="../js/gioco1.js"></script>
+</body>
+</html>

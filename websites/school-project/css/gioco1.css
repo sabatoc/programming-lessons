@@ -1,0 +1,35 @@
+/* Ensure the page content uses the entire available window space */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Make the game container fill the entire viewport (the user's visible area of a web page) */
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: green;
+}
+
+.gameSprite {
+    position: relative;
+    cursor: pointer;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 60px;
+    z-index: 10;
+}
+
+#player {
+	font-size: 190px; /* Size of the player */
+}
+
+#target {
+    font-size: 128px; /* Size of the target */
+}
