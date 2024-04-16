@@ -45,6 +45,7 @@ html, body {
 
 #target {
     font-size: 128px; /* Size of the target */
+    user-select: none;
 }
 
 .targetCounter {
