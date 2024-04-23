@@ -1,0 +1,32 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+  }
+  
+  #gameContainer {
+    width: 800px;
+    height: 400px;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #000;
+    overflow: hidden;
+  }
+  
+  #player {
+    font-size: 80px;
+    position: absolute;
+    left: 20px;
+    background-color: #c5d8d2;
+    top: 50%; /* Center the player when the game starts */
+  }
+
+  .hen {
+    font-size: 80px;
+    position: absolute;
+    background-color: #ea2323;
+    top: 50%; /* Center the player when the game starts */
+  }  

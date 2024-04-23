@@ -27,9 +27,7 @@ function spawnTarget() {
     newTarget.textContent = '🍎'; // Your target emoji or image
 
     let x = Math.random() * (window.innerWidth - 64);
-    console.log("Target x:", x);
     let y = Math.random() * (window.innerHeight - 64);
-    console.log("Target y:", y);
     newTarget.style.left = x + 'px';
     newTarget.style.top = y + 'px';
     newTarget.style.position = 'absolute'; // Ensure this is set if not already in your CSS
