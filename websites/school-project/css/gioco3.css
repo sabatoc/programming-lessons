@@ -1,0 +1,14 @@
+#player {
+  font-size: 80px;
+  position: absolute;
+  left: 20px;
+  background-color: #c5d8d2;
+  top: 50%; /* Center the player when the game starts */
+}
+
+.hen {
+  font-size: 80px;
+  position: absolute;
+  background-color: #ea2323;
+  top: 50%; /* Center the player when the game starts */
+}

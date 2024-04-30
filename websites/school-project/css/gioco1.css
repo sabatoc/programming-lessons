@@ -1,29 +1,6 @@
-/* Ensure the page content uses the entire available window space */
-body, html {
-    margin: 0;
-    padding: 0;
-}
-
-/* Make the game container fill the entire viewport (the user's visible area of a web page) */
-#gameContainer {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-color: green;
-}
-
 .gameSprite {
-    position: relative;
-    cursor: pointer;
-}
-
-#score {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
-    font-size: 60px;
-    z-index: 10;
+    cursor: pointer;
 }
 
 #player {
@@ -32,4 +9,24 @@ body, html {
 
 #target {
     font-size: 128px; /* Size of the target */
+    user-select: none;
+}
+
+.targetCounter {
+    font-size: 80px; /* Size of the counter displayed in the target */
+}
+
+#startGame {
+    padding: 20px 40px; /* Adjusts the size of the button */
+    font-size: 24px; /* Makes the text larger */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    background-color: #007bff; /* Sets a background color */
+    color: white; /* Sets the text color */
+    border: none; /* Removes the default border */
+    border-radius: 5px; /* Optional: adds rounded corners */
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+}
+
+#startGame:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
