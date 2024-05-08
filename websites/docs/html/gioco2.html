@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gioco 2</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gioco2.css">
+</head>
+<body>
+    <div id="topBar">
+        <button onclick="window.location.href='giochi.html'">Giochi</button>
+        <button onclick="alert('Menu 2 clicked')">Menu 2</button>
+        <button onclick="alert('Menu 3 clicked')">Menu 3</button>
+    </div>
+    <div id="gameBar">
+        <button onclick="window.location.href='gioco1.html'">Mele Pitagoriche</button>
+        <button onclick="window.location.href='gioco2.html'">Calice di Pitagora</button>
+        <button onclick="window.location.href='gioco3.html'">Pitagora Scansa Galline</button>
+    </div>
+    <h1>Benvenuto al Gioco del Calice di Pitagora</h1>
+    <p id="gameDescription">Il timer accanto al calice scomparirà tra qualche secondo. Clicca il bottone "Ora!" quando credi che il timer sia arrivato a zero.</p>
+    <div id="gameContainer">
+        <img src="../images/coppa_di_pitagora.png" alt="Coppa di Pitagora">
+        <button id="guessButton" onclick="checkTime()">Ora!</button>
+        <div id="timer">15</div>        
+    </div>
+    <script src="../js/gioco2.js"></script>
+</body>
+</html>

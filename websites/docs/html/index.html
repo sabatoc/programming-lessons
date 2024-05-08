@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="topBar">
+        <button onclick="window.location.href='giochi.html'">Giochi</button>
+        <button onclick="alert('Menu 2 clicked')">Menu 2</button>
+        <button onclick="alert('Menu 3 clicked')">Menu 3</button>
+    </div>
+    <h1>Benvenuto alla Home Page</h1>
+
+    <!-- Image Map Integration -->
+    <img class="tree" src="../images/albero-di-pitagora.png" usemap="#image-map" alt="Map" width="637" height="434">
+        
+    <map name="image-map">
+        <!-- Define clickable areas -->
+        <area shape="rect" coords="268,320,370,425" href="giochi.html" alt="Giochi">
+        <area shape="poly" coords="216,268,268,216,318,268,268,320" href="#" alt="" onclick="alert('Menu 2 clicked')">    
+    </map>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
