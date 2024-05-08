@@ -1,3 +1,7 @@
+#gameContainer {
+  background-color: green;
+}
+
 #player {
   font-size: 80px;
   position: absolute;

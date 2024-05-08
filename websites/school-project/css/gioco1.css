@@ -1,19 +1,27 @@
+#gameContainer {
+    background-color: green;
+}
+
 .gameSprite {
     position: absolute;
     cursor: pointer;
 }
 
 #player {
-	font-size: 190px; /* Size of the player */
+    position: absolute;
+    background-size: cover;
+    pointer-events: none;
+    font-size: 190px;
+    user-select: none;
 }
 
 #target {
-    font-size: 128px; /* Size of the target */
+    font-size: 128px;
     user-select: none;
 }
 
 .targetCounter {
-    font-size: 80px; /* Size of the counter displayed in the target */
+    font-size: 80px;
 }
 
 #startGame {
@@ -29,4 +37,8 @@
 
 #startGame:hover {
     background-color: #0056b3; /* Darker shade on hover */
+}
+
+#score {
+    user-select: none;
 }

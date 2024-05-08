@@ -32,9 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
           clearInterval(interval);
           gameContainer.removeChild(hen);
           score++;
-          console.log('Score:', score);
+          document.getElementById('score').textContent = 'Punteggio: ' + score;
+          
+          // CHANGE SCORE HERE
+          if (score == 15) {
+            clearInterval(spawnHenInterval);
+            gameContainer.innerHTML = '';
+            // Delay the alert by 10 milliseconds to make sure the updated Score is shown before this alert
+            setTimeout(function() {
+                alert('Hai vinto!');
+                clearInterval(interval);
+                window.location.reload();
+            }, 10);
+          }
         } else if (isCollision(hen)) {
-          alert("Game Over! Your score: " + score);
+          alert('Hai perso, riprova!');
           clearInterval(interval);
           window.location.reload();
         } else {
@@ -53,5 +65,5 @@ document.addEventListener('DOMContentLoaded', function() {
       );
     }
   
-    setInterval(spawnHen, 2000);
+    spawnHenInterval = setInterval(spawnHen, 1000);
   });  

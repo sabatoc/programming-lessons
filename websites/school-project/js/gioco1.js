@@ -11,8 +11,9 @@ let score = 0;
 document.addEventListener('mousemove', function(e) {
     // Move the player to follow the mouse cursor, centered
     // Calculate the centered position
-    const centeredLeft = e.pageX - playerWidth / 2;
-    const centeredTop = e.pageY - playerHeight / 2;
+    const rect = gameContainer.getBoundingClientRect();
+    const centeredLeft = e.pageX - rect.left - playerWidth / 2;
+    const centeredTop = e.pageY  - rect.top - playerHeight / 2;
 
     // Apply the centered position
     player.style.left = centeredLeft + 'px';
@@ -22,15 +23,20 @@ document.addEventListener('mousemove', function(e) {
 function spawnTarget() {
     // Create a new target element
     const newTarget = document.createElement('div');
-    newTarget.className = 'gameSprite'; // Assuming 'gameSprite' has your styling for targets
+    newTarget.className = 'gameSprite'; // 'gameSprite' specifies styling for targets
     newTarget.id = 'target';
     newTarget.textContent = '🍎'; // Your target emoji or image
 
-    let x = Math.random() * (window.innerWidth - 64);
-    let y = Math.random() * (window.innerHeight - 64);
+    // Get dimensions and position of the gameContainer
+    const rect = gameContainer.getBoundingClientRect();
+
+    // Adjust target's position to stay within the gameContainer
+    let x = Math.random() * (rect.width - targetWidth);
+    let y = Math.random() * (rect.height - targetHeight);
+
     newTarget.style.left = x + 'px';
     newTarget.style.top = y + 'px';
-    newTarget.style.position = 'absolute'; // Ensure this is set if not already in your CSS
+    newTarget.style.position = 'absolute';
 
     const targetCounter = document.createElement('div');
     targetCounter.className = 'targetCounter';
@@ -39,23 +45,27 @@ function spawnTarget() {
     const targetCounterY = -targetHeight;
     targetCounter.style.left = targetCounterX + 'px';
     targetCounter.style.top = targetCounterY + 'px';
-    targetCounter.style.position = 'relative'; // Ensure this is set if not already in your CSS
+    targetCounter.style.position = 'relative';
 
     newTarget.appendChild(targetCounter);
 
     // Add click event to new target
     newTarget.addEventListener('click', function() {
         score++;
-        document.getElementById('score').textContent = 'Score: ' + score;
+        document.getElementById('score').textContent = 'Punteggio: ' + score;
         gameContainer.removeChild(newTarget); // Remove the clicked target
 
-        if (score == 10) {
+        // CHANGE SCORE HERE
+        if (score == 20) {
             clearInterval(spawnTargetInterval);
             clearInterval(decreaseCountersInterval);
             gameContainer.innerHTML = '';
             // Delay the alert by 10 milliseconds to make sure the updated Score is shown before this alert
             setTimeout(function() {
                 alert('Hai vinto!');
+                clearInterval(spawnTargetInterval);
+                clearInterval(decreaseCountersInterval);
+                window.location.reload();
             }, 10);
         }
     });
@@ -84,24 +94,12 @@ function decreaseCounters() {
 
         if (counters[i].textContent == -1) {
             alert('Hai perso, riprova!');
-            location.reload();
             clearInterval(spawnTargetInterval);
             clearInterval(decreaseCountersInterval);
+            window.location.reload();
         }
     }
 }
 
-/*document.getElementById('startGame').addEventListener('click', function() {
-    console.log("Button pressed...");
-    
-    //spawnSpeed = document.getElementById('speed').value || 1000;
-    //clearInterval(gameInterval); // Clear existing game interval if any
-    //gameInterval = setInterval(spawnTarget, spawnSpeed);
-
-    // Call spawnTarget and decreaseCounters every second
-    spawnTargetInterval = setInterval(spawnTarget, 1000);
-    decreaseCountersInterval = setInterval(decreaseCounters, 1000);
-});*/
-
-spawnTargetInterval = setInterval(spawnTarget, 1000);
+spawnTargetInterval = setInterval(spawnTarget, 500);
 decreaseCountersInterval = setInterval(decreaseCounters, 1000);
